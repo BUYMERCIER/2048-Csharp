@@ -36,5 +36,28 @@ namespace Application
 			return act;
 		}
 		//
+
+		public void move(Action action, Grid grid) {
+			
+			if (action == Action.Down) { // Down
+				for (int x = 0; x < grid.grid.GetLength(0); x++)
+				{
+					for (int y = 0; y < grid.grid.GetLength(1); y++)
+					{
+						if (grid.grid[x, y] != " " && x + 1 < grid.grid.GetLength(1)) {
+							if (grid.grid[x + 1, y] == " ")
+							{ 
+								grid.grid[x + 1, y] = grid.grid[x, y];
+								grid.grid[x, y] = " ";	
+							}
+						}
+					}
+				}
+
+			}
+			// else 
+
+		}
+		//
 	}
 }

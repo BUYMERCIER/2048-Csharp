@@ -11,9 +11,9 @@ namespace Application
 			int first = rand.Next(4);
 			int second = rand.Next(4);
 
-			if (grid.grid[first, second] == " ")
+			if (grid.grid[first, 1] == " ")
 			{
-				grid.grid[first, second] = "2";
+				grid.grid[first, 1] = "2";
 			}
 			else {
 				Generate2(grid);
