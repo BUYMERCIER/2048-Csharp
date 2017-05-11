@@ -16,7 +16,7 @@ namespace Application
 			while (grid.win == 0) { 
 				grid.printGrid();
 				controller.move(controller.GetAction(), grid);
-				//number.Generate2(grid);
+				number.Generate2(grid);
 				grid.checkGrid();
 			}
 			grid.printGrid();

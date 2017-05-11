@@ -38,25 +38,80 @@ namespace Application
 		//
 
 		public void move(Action action, Grid grid) {
-			
-			if (action == Action.Down) { // Down
+
+			if (action == Action.Down)
+			{ // Down
 				for (int y = grid.grid.GetLength(1) - 1; y >= 0; y--)
 				{
 					for (int x = grid.grid.GetLength(0) - 1; x >= 0; x--)
 					{
-						if (grid.grid[x, y] != " " && x + 1 < grid.grid.GetLength(1))
+						if (grid.grid[x, y] != "    " && x + 1 < grid.grid.GetLength(1))
 						{
-							if (grid.grid[x + 1, y] == " ")
+							if (grid.grid[x + 1, y] == "    ")
 							{
 								grid.grid[x + 1, y] = grid.grid[x, y];
-								grid.grid[x, y] = " ";
+								grid.grid[x, y] = "    ";
+							}
+						}
+					}
+				}
+			} // Quit
+			else if (action == Action.Quit) {
+				Environment.Exit(0);
+			}
+			else if (action == Action.Up)
+			{ // Up
+				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				{
+					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					{
+						if (grid.grid[x, y] != "    " && x - 1 >= 0)
+						{
+							if (grid.grid[x - 1, y] == "    ")
+							{
+								grid.grid[x - 1, y] = grid.grid[x, y];
+								grid.grid[x, y] = "    ";
 							}
 						}
 					}
 				}
 			}
-			// else 
-
+			//
+			else if (action == Action.Left)
+			{ // left
+				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				{
+					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					{
+						if (grid.grid[x, y] != "    " && y - 1 >= 0)
+						{
+							if (grid.grid[x, y - 1] == "    ")
+							{
+								grid.grid[x, y - 1] = grid.grid[x, y];
+								grid.grid[x, y] = "    ";
+							}
+						}
+					}
+				}
+			}
+			//
+			else if (action == Action.Right)
+			{ // right
+				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				{
+					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					{
+						if (grid.grid[x, y + 1] != "    " && y + 1 < grid.grid.GetLength(1)) // not working
+						{
+							if (grid.grid[x, y] == "    ")
+							{
+								grid.grid[x, y + 1] = grid.grid[x, y];
+								grid.grid[x, y] = "    ";
+							}
+						}
+					}
+				}
+			}
 		}
 		//
 	}

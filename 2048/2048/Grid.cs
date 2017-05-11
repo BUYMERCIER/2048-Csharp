@@ -8,14 +8,14 @@ namespace Application
 		public Number number = new Number();
 		public int win = 0; // win = 0 not dead and npt winning win = -1 DEAD win = 1 WON
 
+		// Prints the grid
 		public void printGrid() {
-
 			int width = this.grid.GetLength(0);
 			int length = this.grid.GetLength(1);
 			Console.Clear();
 
 			for (int x = 0; x < width; x++) {
-				Console.Write("-----------------\n|");
+				Console.Write("-----------------------------\n|");
 
 				for (int y = 0; y < length; y++) {
 					Console.Write(" ");
@@ -24,7 +24,7 @@ namespace Application
 				}
 				Console.WriteLine();
 			}
-			Console.WriteLine("-----------------");
+			Console.WriteLine("-----------------------------");
 		}
 		//
 
@@ -37,7 +37,7 @@ namespace Application
 			{
 				for (int y = 0; y < length; y++)
 				{
-					this.grid[x, y] = " ";
+					this.grid[x, y] = "    ";
 				}
 			}
 		}
@@ -56,7 +56,7 @@ namespace Application
 						win = 1;
 						return;
 					}
-					else if (this.grid[x, y] == " ") {
+					else if (this.grid[x, y] == "    ") {
 						win = 0;
 						return;
 					}
@@ -64,6 +64,7 @@ namespace Application
 			}
 		}
 		//
+
 	}
 }
 
