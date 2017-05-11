@@ -41,36 +41,39 @@ namespace Application
 
 			if (action == Action.Down)
 			{ // Down
-				for (int y = grid.grid.GetLength(1) - 1; y >= 0; y--)
+				for (int z = 0; z < 4; z++)
 				{
-					for (int x = grid.grid.GetLength(0) - 1; x >= 0; x--)
+					for (int y = grid.grid.GetLength(1) - 1; y >= 0; y--)
 					{
-						if (grid.grid[x, y] != "    " && x + 1 < grid.grid.GetLength(1))
+						for (int x = grid.grid.GetLength(0) - 1; x >= 0; x--)
 						{
-							if (grid.grid[x + 1, y] == "    ")
+							if (grid.grid[x, y] != "    " && x + 1 < grid.grid.GetLength(1))
 							{
-								grid.grid[x + 1, y] = grid.grid[x, y];
-								grid.grid[x, y] = "    ";
+								if (grid.grid[x + 1, y] == "    ")
+								{
+									grid.grid[x + 1, y] = grid.grid[x, y];
+									grid.grid[x, y] = "    ";
+								}
 							}
 						}
 					}
 				}
-			} // Quit
-			else if (action == Action.Quit) {
-				Environment.Exit(0);
 			}
 			else if (action == Action.Up)
 			{ // Up
-				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				for (int z = 0; z < 4; z++)
 				{
-					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					for (int y = 0; y < grid.grid.GetLength(0); y++)
 					{
-						if (grid.grid[x, y] != "    " && x - 1 >= 0)
+						for (int x = 0; x < grid.grid.GetLength(1); x++)
 						{
-							if (grid.grid[x - 1, y] == "    ")
+							if (grid.grid[x, y] != "    " && x - 1 >= 0)
 							{
-								grid.grid[x - 1, y] = grid.grid[x, y];
-								grid.grid[x, y] = "    ";
+								if (grid.grid[x - 1, y] == "    ")
+								{
+									grid.grid[x - 1, y] = grid.grid[x, y];
+									grid.grid[x, y] = "    ";
+								}
 							}
 						}
 					}
@@ -79,16 +82,19 @@ namespace Application
 			//
 			else if (action == Action.Left)
 			{ // left
-				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				for (int z = 0; z < 4; z++)
 				{
-					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					for (int y = 0; y < grid.grid.GetLength(0); y++)
 					{
-						if (grid.grid[x, y] != "    " && y - 1 >= 0)
+						for (int x = 0; x < grid.grid.GetLength(1); x++)
 						{
-							if (grid.grid[x, y - 1] == "    ")
+							if (grid.grid[x, y] != "    " && y - 1 >= 0)
 							{
-								grid.grid[x, y - 1] = grid.grid[x, y];
-								grid.grid[x, y] = "    ";
+								if (grid.grid[x, y - 1] == "    ")
+								{
+									grid.grid[x, y - 1] = grid.grid[x, y];
+									grid.grid[x, y] = "    ";
+								}
 							}
 						}
 					}
@@ -97,20 +103,28 @@ namespace Application
 			//
 			else if (action == Action.Right)
 			{ // right
-				for (int y = 0; y < grid.grid.GetLength(0); y++)
+				for (int z = 0; z < 4; z++)
 				{
-					for (int x = 0; x < grid.grid.GetLength(1); x++)
+					for (int y = 0; y < grid.grid.GetLength(0); y++)
 					{
-						if (grid.grid[x, y + 1] != "    " && y + 1 < grid.grid.GetLength(1)) // not working
+						for (int x = 0; x < grid.grid.GetLength(1); x++)
 						{
-							if (grid.grid[x, y] == "    ")
+							if (grid.grid[x, y + 1] != "    " && y + 1 < grid.grid.GetLength(1)) // not working
 							{
-								grid.grid[x, y + 1] = grid.grid[x, y];
-								grid.grid[x, y] = "    ";
+								if (grid.grid[x, y] == "    ")
+								{
+									grid.grid[x, y + 1] = grid.grid[x, y];
+									grid.grid[x, y] = "    ";
+								}
 							}
 						}
 					}
 				}
+			}
+			//// Quit
+			else if (action == Action.Quit)
+			{
+				Environment.Exit(0);
 			}
 		}
 		//

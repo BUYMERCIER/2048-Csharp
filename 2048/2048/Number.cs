@@ -10,7 +10,8 @@ namespace Application
 			Random rand = new Random();
 			int first = rand.Next(4);
 			int second = rand.Next(4);
-			int number = rand.Next(2);
+			int number = rand.Next(10);
+			// 10 percent of chance of being a 4. as in the real game :)
 
 			if (number == 0)
 			{
