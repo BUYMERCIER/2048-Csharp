@@ -47,7 +47,6 @@ namespace Application
 		public void checkGrid() 
 		{
 			win = -1;
-
 			for (int x = 0; x < this.grid.GetLength(0); x++)
 			{
 				for (int y = 0; y < this.grid.GetLength(1); y++)

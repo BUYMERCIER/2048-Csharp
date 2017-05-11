@@ -38,7 +38,6 @@ namespace Application
 		//
 
 		public void move(Action action, Grid grid, Number number) {
-
 			if (action == Action.Down)
 			{ // Down
 				for (int z = 0; z < 4; z++)
@@ -129,9 +128,9 @@ namespace Application
 					{
 						for (int x = 0; x < grid.grid.GetLength(1); x++)
 						{
-							if (grid.grid[x, y + 1] != "    " && y + 1 < grid.grid.GetLength(1)) // not working
+							if (grid.grid[x, y] != "    " && y + 1 < grid.grid.GetLength(0)) // not working
 							{
-								if (grid.grid[x, y] == "    ")
+								if (grid.grid[x, y + 1] == "    ")
 								{
 									grid.grid[x, y + 1] = grid.grid[x, y];
 									grid.grid[x, y] = "    ";
