@@ -13,6 +13,7 @@ namespace Application
 			int width = this.grid.GetLength(0);
 			int length = this.grid.GetLength(1);
 			Console.Clear();
+			Console.WriteLine("Score: " + Score.score);
 
 			for (int x = 0; x < width; x++) {
 				Console.Write("-----------------------------\n|");

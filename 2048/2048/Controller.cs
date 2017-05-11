@@ -37,7 +37,7 @@ namespace Application
 		}
 		//
 
-		public void move(Action action, Grid grid) {
+		public void move(Action action, Grid grid, Number number) {
 
 			if (action == Action.Down)
 			{ // Down
@@ -53,6 +53,12 @@ namespace Application
 								{
 									grid.grid[x + 1, y] = grid.grid[x, y];
 									grid.grid[x, y] = "    ";
+								}
+								else if (grid.grid[x + 1, y] == grid.grid[x, y]) {
+									int ad = Convert.ToInt32(grid.grid[x, y]) * 2;
+									grid.grid[x + 1, y] = Convert.ToString(ad);
+									grid.grid[x, y] = "    ";
+									UpdateScore(ad);
 								}
 							}
 						}
@@ -73,6 +79,13 @@ namespace Application
 								{
 									grid.grid[x - 1, y] = grid.grid[x, y];
 									grid.grid[x, y] = "    ";
+								}
+								else if (grid.grid[x - 1, y] == grid.grid[x, y])
+								{
+									int ad = Convert.ToInt32(grid.grid[x, y]) * 2;
+									grid.grid[x - 1, y] = Convert.ToString(ad);
+									grid.grid[x, y] = "    ";
+									UpdateScore(ad);
 								}
 							}
 						}
@@ -95,6 +108,13 @@ namespace Application
 									grid.grid[x, y - 1] = grid.grid[x, y];
 									grid.grid[x, y] = "    ";
 								}
+								else if (grid.grid[x, y - 1] == grid.grid[x, y])
+								{
+									int ad = Convert.ToInt32(grid.grid[x, y]) * 2;
+									grid.grid[x, y - 1] = Convert.ToString(ad);
+									grid.grid[x, y] = "    ";
+									UpdateScore(ad);
+								}
 							}
 						}
 					}
@@ -116,6 +136,13 @@ namespace Application
 									grid.grid[x, y + 1] = grid.grid[x, y];
 									grid.grid[x, y] = "    ";
 								}
+								else if (grid.grid[x, y + 1] == grid.grid[x, y])
+								{
+									int ad = Convert.ToInt32(grid.grid[x, y]) * 2;
+									grid.grid[x, y + 1] = Convert.ToString(ad);
+									grid.grid[x, y] = "    ";
+									UpdateScore(ad);
+								}
 							}
 						}
 					}
@@ -128,5 +155,9 @@ namespace Application
 			}
 		}
 		//
+
+		public void UpdateScore(int ad) {
+			Score.score += ad;
+		}
 	}
 }

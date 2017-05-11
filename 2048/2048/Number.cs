@@ -92,13 +92,3 @@ namespace Application
 		//
 	}
 }
-
-/* 
-
-for (int x = 0; x < grid.grid.GetLength(0); x++) {
-	for (int y = 0; y < grid.grid.GetLength(1); y++) { 
-		
-	}
-}
-
-*/
