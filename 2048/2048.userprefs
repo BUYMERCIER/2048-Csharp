@@ -5,7 +5,7 @@
       <File FileName="2048/Grid.cs" Line="49" Column="13" />
       <File FileName="2048/Number.cs" Line="94" Column="2" />
       <File FileName="2048/Score.cs" Line="6" Column="31" />
-      <File FileName="2048/Controller.cs" Line="133" Column="31" />
+      <File FileName="2048/Controller.cs" Line="77" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
