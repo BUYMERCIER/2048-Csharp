@@ -6,29 +6,46 @@ namespace Application
 		public Number()
 		{
 		}
-		public void Generate2(Grid grid) {
+		public void Generate2(Grid grid)
+		{
 			Random rand = new Random();
-			int first = rand.Next(4);
-			int second = rand.Next(4);
-			int number = rand.Next(10);
-			// 10 percent of chance of being a 4. as in the real game :)
+			bool check = false;
 
-			if (number == 0)
+			for (int x = 0; x < 4; x++) { 
+				for (int y = 0; y < 4; y++)
+				 {
+					if (grid.grid[x, y] == "    ") {
+						check = true;
+					}
+ 				 }
+			}
+
+			if (check)
 			{
-				number = 4;
-			}
-			else { 
-				number = 2;
-			}
+				int first = rand.Next(4);
+				int second = rand.Next(4);
+				int number = rand.Next(10);
+				// 10 percent of chance of being a 4. as in the real game :)
 
-			string num = Convert.ToString(number);
+				if (number == 0)
+				{
+					number = 4;
+				}
+				else
+				{
+					number = 2;
+				}
 
-			if (grid.grid[first, second] == "    ")
-			{
-				grid.grid[first, second] = num;
-			}
-			else {
-				Generate2(grid);
+				string num = Convert.ToString(number);
+
+				if (grid.grid[first, second] == "    ")
+				{
+					grid.grid[first, second] = num;
+				}
+				else
+				{
+					Generate2(grid);
+				}
 			}
 		}
 		//

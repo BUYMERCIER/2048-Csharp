@@ -47,6 +47,7 @@ namespace Application
 		public void checkGrid() 
 		{
 			win = -1;
+			string save = "";
 			for (int x = 0; x < this.grid.GetLength(0); x++)
 			{
 				for (int y = 0; y < this.grid.GetLength(1); y++)
@@ -56,10 +57,16 @@ namespace Application
 						win = 1;
 						return;
 					}
-					else if (this.grid[x, y] == "    ") {
+					else if (this.grid[x, y] == "    ")
+					{
 						win = 0;
 						return;
 					}
+					else if (this.grid[x,y] == save) {
+						win = 0;
+						return;
+					}
+					save = this.grid[x, y];
 				}
 			}
 		}
